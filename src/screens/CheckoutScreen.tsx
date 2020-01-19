@@ -25,8 +25,8 @@ const CheckoutScreen: React.FC<{componentId?: string}> = ({componentId}) => {
         chequing: state.chequing - 5.65 - state.subtotal,
         subtotal: 0,
       }).then(s => {
-        Navigation.popToRoot(componentId + '');
         setState(s);
+        Navigation.popToRoot(componentId + '');
       });
     }
 
@@ -96,12 +96,13 @@ const CheckoutScreen: React.FC<{componentId?: string}> = ({componentId}) => {
             <SubHeader light={false}>Remaining Account Balance</SubHeader>
             <NumberText>
               $
-              {(bankingSelected === 'chequing'
-                ? state.chequing
-                : state.saving) -
+              {(
+                (bankingSelected === 'chequings'
+                  ? state.chequing
+                  : state.saving) -
                 5.65 -
-                state.subtotal}
-              .
+                state.subtotal
+              ).toFixed(2)}
             </NumberText>
           </BalanceView>
 

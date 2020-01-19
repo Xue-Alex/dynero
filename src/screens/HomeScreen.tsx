@@ -15,7 +15,11 @@ import {getState, initialLoad} from '../methods/useStorage';
 const HomeScreen: React.FC<{componentId: string}> = ({componentId}) => {
   const [state, setState] = useState(getState());
   useEffect(() => {
-    initialLoad().then(s => setState(s));
+    initialLoad().then(s => {
+      if (s.chequing !== state.chequing || s.saving !== state.saving) {
+        setState(s);
+      }
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   });
   const makeWithdrawal = () => {

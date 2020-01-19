@@ -86,7 +86,7 @@ const WithdrawalScreen: React.FC<{componentId?: string}> = ({componentId}) => {
             <BillWithMargin type={50} onPress={() => handleBill(50)} />
             <BillWithMargin type={20} onPress={() => handleBill(20)} />
             <BillWithMargin type={10} onPress={() => handleBill(10)} />
-            <BillWithMargin type={5} onPress={() => handleBill(10)} />
+            <BillWithMargin type={5} onPress={() => handleBill(5)} />
           </BillContainer>
 
           <CoinsContainer>

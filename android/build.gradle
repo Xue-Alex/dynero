@@ -9,6 +9,8 @@ buildscript {
     }
     repositories {
         google()
+        mavenLocal()
+        mavenCentral()
         jcenter()
     }
     dependencies {
@@ -35,4 +37,11 @@ allprojects {
         jcenter()
         maven { url 'https://jitpack.io' }
     }
+}
+
+ext {
+    minSdkVersion = 19
+    compileSdkVersion = 26
+    targetSdkVersion = 26
+    supportLibVersion = "26.1.0"
 }
