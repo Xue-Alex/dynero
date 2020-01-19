@@ -137,8 +137,8 @@ const colors = {
 };
 
 const fonts = {
-  title: 'Nunito Sans',
-  main: 'Nunito Sans',
+  title: 'Open Sans',
+  main: 'Open Sans',
 };
 
 const theme: KTheme = {

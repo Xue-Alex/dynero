@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* dyneroappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* dyneroappTests.m */; };
 		0EB1C9F9F161CC883D7D93D7 /* libPods-dyneroappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF12623D785C5175F10D8495 /* libPods-dyneroappTests.a */; };
+		10CBF77B30A7469198C0440F /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 050436ECDC194419873900F3 /* OpenSans-Regular.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -19,7 +20,16 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* dyneroappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* dyneroappTests.m */; };
 		3107067521162FEC664FBF71 /* libPods-dyneroapp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F8EE5B2F3DD7FF8E07E424 /* libPods-dyneroapp-tvOSTests.a */; };
+		3BEC3308406A471E874BE36D /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D342B7921047C08C006AB9 /* OpenSans-ExtraBoldItalic.ttf */; };
+		42467558B6D64977851D623D /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3327462C37B2493BAB98C9A1 /* OpenSans-LightItalic.ttf */; };
+		6284FFA1228A4864B0625A65 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14519A3486A9475EA0B68D5C /* OpenSans-SemiBold.ttf */; };
+		6505D07B0E084A6BA05D547D /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CF3311F0B944016AF2928C4 /* OpenSans-Light.ttf */; };
 		806F17880E9CF896FB7CBBD0 /* libPods-dyneroapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D34EE7915460037BFC62AD /* libPods-dyneroapp.a */; };
+		83D28243458E4357A74F46C3 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F318A43E33C421C9DC3B421 /* OpenSans-Bold.ttf */; };
+		910435EB15D94D80908A3058 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F2132495D414400B07CB9AE /* OpenSans-BoldItalic.ttf */; };
+		9FBB44F7D8944659AFEB38C9 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FD411AFF894424FA5ECF555 /* OpenSans-Italic.ttf */; };
+		B768B909A6D14F8A942A408C /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4D2BC5021CD455E9045258B /* OpenSans-SemiBoldItalic.ttf */; };
+		E6AE420CAEED44819BC37BC5 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CED5A88F2AA642509E787732 /* OpenSans-ExtraBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +54,10 @@
 		00E356EE1AD99517003FC87E /* dyneroappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dyneroappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* dyneroappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dyneroappTests.m; sourceTree = "<group>"; };
+		050436ECDC194419873900F3 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		07564EAC906AACFC23E4C8CF /* Pods-dyneroappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dyneroappTests.release.xcconfig"; path = "Target Support Files/Pods-dyneroappTests/Pods-dyneroappTests.release.xcconfig"; sourceTree = "<group>"; };
+		0CF3311F0B944016AF2928C4 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Light.ttf"; path = "../assets/fonts/OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		0F2132495D414400B07CB9AE /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-BoldItalic.ttf"; path = "../assets/fonts/OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* dyneroapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dyneroapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = dyneroapp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = dyneroapp/AppDelegate.m; sourceTree = "<group>"; };
@@ -52,10 +65,15 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = dyneroapp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = dyneroapp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = dyneroapp/main.m; sourceTree = "<group>"; };
+		14519A3486A9475EA0B68D5C /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiBold.ttf"; path = "../assets/fonts/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		19ADAFBAD29C8D7ADBC8071B /* Pods-dyneroapp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dyneroapp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-dyneroapp-tvOSTests/Pods-dyneroapp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1CBBD99A4ED027A9EACEB17B /* Pods-dyneroapp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dyneroapp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-dyneroapp-tvOS/Pods-dyneroapp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		1F318A43E33C421C9DC3B421 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold.ttf"; path = "../assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* dyneroapp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dyneroapp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* dyneroapp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dyneroapp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3327462C37B2493BAB98C9A1 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-LightItalic.ttf"; path = "../assets/fonts/OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		3FD411AFF894424FA5ECF555 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Italic.ttf"; path = "../assets/fonts/OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		47D342B7921047C08C006AB9 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-ExtraBoldItalic.ttf"; path = "../assets/fonts/OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		50F8EE5B2F3DD7FF8E07E424 /* libPods-dyneroapp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dyneroapp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD8681CE3808A4D3E378956 /* Pods-dyneroapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dyneroapp.debug.xcconfig"; path = "Target Support Files/Pods-dyneroapp/Pods-dyneroapp.debug.xcconfig"; sourceTree = "<group>"; };
 		71581A1A43EB87352FA3A541 /* Pods-dyneroapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dyneroapp.release.xcconfig"; path = "Target Support Files/Pods-dyneroapp/Pods-dyneroapp.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,8 +81,10 @@
 		85D34EE7915460037BFC62AD /* libPods-dyneroapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dyneroapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA9D9D5B452AE0339064573 /* Pods-dyneroapp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dyneroapp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-dyneroapp-tvOSTests/Pods-dyneroapp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		AF12623D785C5175F10D8495 /* libPods-dyneroappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dyneroappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED5A88F2AA642509E787732 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-ExtraBold.ttf"; path = "../assets/fonts/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		CFB3768C98645627A3576977 /* Pods-dyneroappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dyneroappTests.debug.xcconfig"; path = "Target Support Files/Pods-dyneroappTests/Pods-dyneroappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E3C0321C136C2E9E13049F55 /* Pods-dyneroapp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dyneroapp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-dyneroapp-tvOS/Pods-dyneroapp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		E4D2BC5021CD455E9045258B /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiBoldItalic.ttf"; path = "../assets/fonts/OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -134,7 +154,6 @@
 				CFB3768C98645627A3576977 /* Pods-dyneroappTests.debug.xcconfig */,
 				07564EAC906AACFC23E4C8CF /* Pods-dyneroappTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -181,6 +200,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				0279C6FEBB3706340B987187 /* Pods */,
+				B70A585CDCA841B2A85B51C4 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -196,6 +216,23 @@
 				2D02E4901E0B4A5D006451C7 /* dyneroapp-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B70A585CDCA841B2A85B51C4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1F318A43E33C421C9DC3B421 /* OpenSans-Bold.ttf */,
+				0F2132495D414400B07CB9AE /* OpenSans-BoldItalic.ttf */,
+				CED5A88F2AA642509E787732 /* OpenSans-ExtraBold.ttf */,
+				47D342B7921047C08C006AB9 /* OpenSans-ExtraBoldItalic.ttf */,
+				3FD411AFF894424FA5ECF555 /* OpenSans-Italic.ttf */,
+				0CF3311F0B944016AF2928C4 /* OpenSans-Light.ttf */,
+				3327462C37B2493BAB98C9A1 /* OpenSans-LightItalic.ttf */,
+				050436ECDC194419873900F3 /* OpenSans-Regular.ttf */,
+				14519A3486A9475EA0B68D5C /* OpenSans-SemiBold.ttf */,
+				E4D2BC5021CD455E9045258B /* OpenSans-SemiBoldItalic.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,7 +322,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -308,6 +345,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -338,6 +376,16 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				83D28243458E4357A74F46C3 /* OpenSans-Bold.ttf in Resources */,
+				910435EB15D94D80908A3058 /* OpenSans-BoldItalic.ttf in Resources */,
+				E6AE420CAEED44819BC37BC5 /* OpenSans-ExtraBold.ttf in Resources */,
+				3BEC3308406A471E874BE36D /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				9FBB44F7D8944659AFEB38C9 /* OpenSans-Italic.ttf in Resources */,
+				6505D07B0E084A6BA05D547D /* OpenSans-Light.ttf in Resources */,
+				42467558B6D64977851D623D /* OpenSans-LightItalic.ttf in Resources */,
+				10CBF77B30A7469198C0440F /* OpenSans-Regular.ttf in Resources */,
+				6284FFA1228A4864B0625A65 /* OpenSans-SemiBold.ttf in Resources */,
+				B768B909A6D14F8A942A408C /* OpenSans-SemiBoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

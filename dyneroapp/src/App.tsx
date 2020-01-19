@@ -4,6 +4,7 @@ import Header from './components/header';
 import Logo from './components/logo';
 import styled, {ThemeProvider} from 'styled-components/native';
 import theme from './theme';
+import SubHeader from './components/Subheader';
 
 const App: React.FC<{}> = () => {
   return (
@@ -14,7 +15,7 @@ const App: React.FC<{}> = () => {
       <SafeAreaView>
         <Scroll contentInsetAdjustmentBehavior="automatic">
           <Balance>
-            <Text>Balance</Text>
+            <SubHeader light={true}>Balance</SubHeader>
             <Text>B</Text>
           </Balance>
         </Scroll>
