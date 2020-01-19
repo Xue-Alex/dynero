@@ -17,11 +17,19 @@ const HomeScreen: React.FC<{componentId: string}> = ({componentId}) => {
   useEffect(() => {
     initialLoad().then(s => setState(s));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  });
   const makeWithdrawal = () => {
     Navigation.push(componentId, {
       component: {
         name: screens.withdrawal.identifier,
+      },
+    });
+  };
+
+  const makeDeposit = () => {
+    Navigation.push(componentId, {
+      component: {
+        name: screens.checkout.identifier,
       },
     });
   };
@@ -57,7 +65,7 @@ const HomeScreen: React.FC<{componentId: string}> = ({componentId}) => {
             <WithdrawalButton
               text="Make a Deposit"
               withdraw={false}
-              onPress={() => makeWithdrawal()}
+              onPress={() => makeDeposit()}
             />
           </WithdrawButtonContainer>
 
