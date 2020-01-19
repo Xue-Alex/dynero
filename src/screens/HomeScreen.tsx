@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StatusBar} from 'react-native';
 import Logo from '../components/primitives/logo';
-import styled, {ThemeProvider} from 'styled-components/native';
-import theme from '../theme';
+import styled from 'styled-components/native';
 import SubHeader from '../components/primitives/Subheader';
 import BigText from '../components/primitives/BigText';
 import TopHeader from '../components/primitives/TopHeader';
@@ -11,8 +10,14 @@ import WithdrawalButton from '../components/molecules/WithdrawalButton';
 import BankingButton from '../components/molecules/BankingButton';
 import {Navigation} from 'react-native-navigation';
 import screens from '../screens';
+import {getState, initialLoad} from '../methods/useStorage';
 
 const HomeScreen: React.FC<{componentId: string}> = ({componentId}) => {
+  const [state, setState] = useState(getState());
+  useEffect(() => {
+    initialLoad().then(s => setState(s));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const makeWithdrawal = () => {
     Navigation.push(componentId, {
       component: {
@@ -20,8 +25,11 @@ const HomeScreen: React.FC<{componentId: string}> = ({componentId}) => {
       },
     });
   };
+
+  console.log(state);
+
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <StatusBar barStyle="light-content" />
 
       <SafeArea>
@@ -30,7 +38,7 @@ const HomeScreen: React.FC<{componentId: string}> = ({componentId}) => {
           <CustomLogo />
           <Balance>
             <SubHeader light={true}>Balance</SubHeader>
-            <BigText>$1024.02</BigText>
+            <BigText>${(state.chequing + state.saving).toFixed(2)}</BigText>
           </Balance>
 
           <TransactionsHeaderContainer>
@@ -56,12 +64,20 @@ const HomeScreen: React.FC<{componentId: string}> = ({componentId}) => {
           <BankingHeader>Banking Accounts</BankingHeader>
 
           <BankingContainer>
-            <BankingButton text="Chequing" number="#12345" price={123.81} />
-            <BankingButton text="Savings" number="#28172" price={123.81} />
+            <BankingButton
+              text="Chequing"
+              number="#12345"
+              price={state.chequing}
+            />
+            <BankingButton
+              text="Savings"
+              number="#28172"
+              price={state.saving}
+            />
           </BankingContainer>
         </Scroll>
       </SafeArea>
-    </ThemeProvider>
+    </>
   );
 };
 

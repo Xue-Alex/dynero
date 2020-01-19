@@ -17,7 +17,7 @@ const TotalView: React.FC<ITotalViewProps> = ({change, remove, onNext}) => {
     <Container>
       <HeaderView>
         <Label>Total</Label>
-        <Button title="Next" onPress={onNext} />
+        <Button title="Checkout" onPress={onNext} />
       </HeaderView>
       <TotalValue>
         ${change.reduce((acc, next) => acc + next, 0).toFixed(2)}

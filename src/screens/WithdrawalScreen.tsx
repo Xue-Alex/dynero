@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import {ThemeProvider} from 'styled-components';
-import theme from '../theme';
 import SmallTopHeader from '../components/primitives/SmallTopHeader';
 import {StatusBar, View} from 'react-native';
 import styled from 'styled-components/native';
@@ -15,9 +13,11 @@ import CustomBillInput from '../components/molecules/CustomBillInput';
 import Coin from '../components/molecules/Coin';
 import TotalView from '../components/molecules/TotalView';
 import BackButton from '../components/primitives/BackButton';
+import {getState, saveState} from '../methods/useStorage';
 
 const WithdrawalScreen: React.FC<{componentId?: string}> = ({componentId}) => {
   const [change, setChange] = useState(new Array<number>());
+  const state = getState();
   const handleBill = (bill: BillType) => {
     let arr = [...change, bill as number];
     arr.sort((a, b) => b - a);
@@ -42,10 +42,17 @@ const WithdrawalScreen: React.FC<{componentId?: string}> = ({componentId}) => {
     });
   };
 
-  function saveCustomBill(value: string) {}
+  function saveCustomBill(value: string) {
+    let num = parseFloat(value);
+    if (isNaN(num)) {
+      return;
+    }
 
+    // convert num to
+  }
+  console.log(state);
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <StatusBar barStyle="light-content" />
       <SafeArea>
         <Scroll>
@@ -56,7 +63,14 @@ const WithdrawalScreen: React.FC<{componentId?: string}> = ({componentId}) => {
             </ETAView>
             <BalanceView>
               <SubHeader light={false}>Remaining Balance</SubHeader>
-              <NumberText>$1,020.09</NumberText>
+              <NumberText>
+                $
+                {(
+                  state.chequing +
+                  state.saving -
+                  change.reduce((acc, prev) => acc + prev, 0)
+                ).toFixed(2)}
+              </NumberText>
             </BalanceView>
           </HeaderView>
 
@@ -86,13 +100,17 @@ const WithdrawalScreen: React.FC<{componentId?: string}> = ({componentId}) => {
           <TotalView
             change={change}
             remove={index => setChange(change.filter((v, i) => i !== index))}
-            onNext={() =>
-              Navigation.push(componentId || '', {
-                component: {
-                  name: screens.checkout.identifier,
-                },
-              })
-            }
+            onNext={() => {
+              saveState({
+                subtotal: change.reduce((acc, prev) => acc + prev, 0),
+              }).then(() => {
+                Navigation.push(componentId || '', {
+                  component: {
+                    name: screens.checkout.identifier,
+                  },
+                });
+              });
+            }}
           />
           <View style={{height: 100}} />
         </Scroll>
@@ -100,12 +118,16 @@ const WithdrawalScreen: React.FC<{componentId?: string}> = ({componentId}) => {
         <TopBarView>
           <BackButton
             title="Back"
-            onPress={() => Navigation.pop(componentId || '')}
+            onPress={() => {
+              saveState({...state, subtotal: 0}).then(() =>
+                Navigation.pop(componentId || ''),
+              );
+            }}
           />
           <CustomLogo />
         </TopBarView>
       </SafeArea>
-    </ThemeProvider>
+    </>
   );
 };
 
@@ -120,7 +142,6 @@ const Scroll = styled.ScrollView`
 
 const TopBarView = styled.View`
   position: absolute;
-  background-color: rgba(0, 23, 102, 0.2);
   left: 0;
   right: 0;
   height: 100px;
