@@ -12,18 +12,19 @@ import Bill, {BillType} from '../components/molecules/Bill';
 import {Navigation} from 'react-native-navigation';
 import screens from '../screens';
 import CustomBillInput from '../components/molecules/CustomBillInput';
-import Coin, {CoinType} from '../components/molecules/Coin';
+import Coin from '../components/molecules/Coin';
 import TotalView from '../components/molecules/TotalView';
+import BackButton from '../components/primitives/BackButton';
 
-const WithdrawalScreen: React.FC<{}> = () => {
+const WithdrawalScreen: React.FC<{componentId?: string}> = ({componentId}) => {
   const [change, setChange] = useState(new Array<number>());
   const handleBill = (bill: BillType) => {
     let arr = [...change, bill as number];
     arr.sort((a, b) => b - a);
     setChange(arr);
   };
-  const handleCoin = (coin: CoinType) => {
-    let arr = [...change, coin as number];
+  const handleCoin = (coin: number) => {
+    let arr = [...change, coin];
     arr.sort((a, b) => b - a);
     setChange(arr);
   };
@@ -85,11 +86,24 @@ const WithdrawalScreen: React.FC<{}> = () => {
           <TotalView
             change={change}
             remove={index => setChange(change.filter((v, i) => i !== index))}
+            onNext={() =>
+              Navigation.push(componentId || '', {
+                component: {
+                  name: screens.checkout.identifier,
+                },
+              })
+            }
           />
           <View style={{height: 100}} />
         </Scroll>
         <SmallTopHeader />
-        <CustomLogo />
+        <TopBarView>
+          <BackButton
+            title="Back"
+            onPress={() => Navigation.pop(componentId || '')}
+          />
+          <CustomLogo />
+        </TopBarView>
       </SafeArea>
     </ThemeProvider>
   );
@@ -104,11 +118,21 @@ const Scroll = styled.ScrollView`
   padding: 75px 5% 0;
 `;
 
-const CustomLogo = styled(Logo)`
+const TopBarView = styled.View`
   position: absolute;
-  top: -40%;
-  transform: scale(0.3)
+  background-color: rgba(0, 23, 102, 0.2);
   left: 0;
+  right: 0;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding: 20px 0 0 5%;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+const CustomLogo = styled(Logo)`
+  transform: scale(0.3);
+  margin: 7px 0 0 -100%;
 `;
 
 const HeaderView = styled.View`

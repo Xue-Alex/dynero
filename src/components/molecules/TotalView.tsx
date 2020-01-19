@@ -9,14 +9,15 @@ import Coin, {CoinType} from './Coin';
 interface ITotalViewProps {
   change: number[];
   remove?: (index: number) => void;
+  onNext?: () => void;
 }
 
-const TotalView: React.FC<ITotalViewProps> = ({change, remove}) => {
+const TotalView: React.FC<ITotalViewProps> = ({change, remove, onNext}) => {
   return (
     <Container>
       <HeaderView>
         <Label>Total</Label>
-        <Button title="Next" />
+        <Button title="Next" onPress={onNext} />
       </HeaderView>
       <TotalValue>
         ${change.reduce((acc, next) => acc + next, 0).toFixed(2)}

@@ -1,5 +1,6 @@
 import HomeScreen from './screens/HomeScreen';
 import WithdrawalScreen from './screens/WithdrawalScreen';
+import CheckoutScreen from './screens/CheckoutScreen';
 import PopupModal from './components/molecules/PopupModal';
 
 const screens = {
@@ -16,6 +17,11 @@ const screens = {
   popupModal: {
     identifier: 'PopupModal',
     component: PopupModal,
+    props: {},
+  },
+  checkout: {
+    identifier: 'Checkout',
+    component: CheckoutScreen,
     props: {},
   },
 };

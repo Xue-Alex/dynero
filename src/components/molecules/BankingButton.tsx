@@ -10,17 +10,19 @@ interface IWithdrawalButtonProps {
   number: string;
   price: number;
   onPress?: () => void;
+  highlighted?: boolean;
 }
 const BankingButton: React.FC<IWithdrawalButtonProps> = ({
   text,
   number,
   price,
   onPress,
+  highlighted,
 }) => {
   return (
     <ContainerButton onPress={onPress}>
       <Container>
-        <SubHeader light={false}>{number}</SubHeader>
+        <SubHeader light={highlighted || false}>{number}</SubHeader>
         <DarkSubheader light={false}>{text}</DarkSubheader>
         <Price>${price.toFixed(2)}</Price>
       </Container>

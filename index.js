@@ -16,6 +16,10 @@ Navigation.registerComponent(
   screens.popupModal.identifier,
   () => screens.popupModal.component,
 );
+Navigation.registerComponent(
+  screens.checkout.identifier,
+  () => screens.checkout.component,
+);
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setDefaultOptions({

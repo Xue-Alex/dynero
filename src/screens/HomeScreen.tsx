@@ -27,7 +27,7 @@ const HomeScreen: React.FC<{componentId: string}> = ({componentId}) => {
       <SafeArea>
         <TopHeader />
         <Scroll contentInsetAdjustmentBehavior="automatic">
-          <Logo />
+          <CustomLogo />
           <Balance>
             <SubHeader light={true}>Balance</SubHeader>
             <BigText>$1024.02</BigText>
@@ -64,6 +64,13 @@ const HomeScreen: React.FC<{componentId: string}> = ({componentId}) => {
     </ThemeProvider>
   );
 };
+
+const CustomLogo = styled(Logo)`
+  position: absolute;
+  left: -15%;
+  top: -55%;
+  transform: scale(0.7);
+`;
 
 const SafeArea = styled.SafeAreaView`
   background-color: ${props => props.theme.colors.sandy};

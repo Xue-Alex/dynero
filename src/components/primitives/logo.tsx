@@ -1,6 +1,5 @@
 import React from 'react';
 import {SvgCss} from 'react-native-svg';
-import styled from 'styled-components/native';
 import {StyleProp, ViewStyle} from 'react-native';
 
 const xml = `
@@ -21,14 +20,7 @@ const xml = `
 `;
 
 const Logo = ({style}: {style?: StyleProp<ViewStyle>}) => {
-  return <Custom style={style} xml={xml} width="100%" height="100%" />;
+  return <SvgCss style={style} xml={xml} width="100%" height="100%" />;
 };
-
-const Custom = styled(SvgCss)`
-  position: absolute;
-  left: -15%;
-  top: -55%;
-  transform: scale(0.7);
-`;
 
 export default Logo;
