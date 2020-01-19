@@ -1,3 +1,2 @@
 # dynero
-uber for guap
-test
+run "pip install -r requirements.txt"
