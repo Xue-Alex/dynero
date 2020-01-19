@@ -21,7 +21,8 @@ const HomeScreen: React.FC<{componentId: string}> = ({componentId}) => {
       }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  });
+  }, [state.chequing, state.saving]);
+
   const makeWithdrawal = () => {
     Navigation.push(componentId, {
       component: {
