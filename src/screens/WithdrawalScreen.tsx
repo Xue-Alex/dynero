@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {ThemeProvider} from 'styled-components';
 import theme from '../theme';
 import SmallTopHeader from '../components/primitives/SmallTopHeader';
-import {StatusBar} from 'react-native';
+import {StatusBar, View} from 'react-native';
 import styled from 'styled-components/native';
 import Logo from '../components/primitives/logo';
 import SubHeader from '../components/primitives/Subheader';
@@ -12,11 +12,21 @@ import Bill, {BillType} from '../components/molecules/Bill';
 import {Navigation} from 'react-native-navigation';
 import screens from '../screens';
 import CustomBillInput from '../components/molecules/CustomBillInput';
-import Coin from '../components/molecules/Coin';
+import Coin, {CoinType} from '../components/molecules/Coin';
 import TotalView from '../components/molecules/TotalView';
 
 const WithdrawalScreen: React.FC<{}> = () => {
-  const handleBill = (bill: BillType) => {};
+  const [change, setChange] = useState(new Array<number>());
+  const handleBill = (bill: BillType) => {
+    let arr = [...change, bill as number];
+    arr.sort((a, b) => b - a);
+    setChange(arr);
+  };
+  const handleCoin = (coin: CoinType) => {
+    let arr = [...change, coin as number];
+    arr.sort((a, b) => b - a);
+    setChange(arr);
+  };
   const handleCustomBill = () => {
     Navigation.showOverlay({
       component: {
@@ -65,14 +75,18 @@ const WithdrawalScreen: React.FC<{}> = () => {
           </BillContainer>
 
           <CoinsContainer>
-            <Coin type={2} />
-            <Coin type={1} />
-            <Coin type={25} />
-            <Coin type={10} />
-            <Coin type={5} />
+            <Coin type={2} onPress={() => handleCoin(2)} />
+            <Coin type={1} onPress={() => handleCoin(1)} />
+            <Coin type={25} onPress={() => handleCoin(0.25)} />
+            <Coin type={10} onPress={() => handleCoin(0.1)} />
+            <Coin type={5} onPress={() => handleCoin(0.05)} />
           </CoinsContainer>
 
-          <TotalView />
+          <TotalView
+            change={change}
+            remove={index => setChange(change.filter((v, i) => i !== index))}
+          />
+          <View style={{height: 100}} />
         </Scroll>
         <SmallTopHeader />
         <CustomLogo />

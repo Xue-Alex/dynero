@@ -8,6 +8,7 @@ interface IBillProps {
   type: CoinType;
   onPress?: () => void;
   style?: any;
+  minus?: boolean;
 }
 
 function getFill(type: CoinType) {
@@ -25,7 +26,7 @@ function getFill(type: CoinType) {
   }
 }
 
-const Coin: React.FC<IBillProps> = ({type, onPress}) => {
+const Coin: React.FC<IBillProps> = ({type, onPress, minus}) => {
   const animatedValue = new Animated.Value(0);
   function animate(value: boolean) {
     Animated.timing(animatedValue, {
@@ -60,9 +61,14 @@ const Coin: React.FC<IBillProps> = ({type, onPress}) => {
         }}>
         <SmallerCircle size={fills[3] as number} fill={fills[0] as string}>
           <CustomLabel type={type}>
-            {type < 5 ? '$' + type.toFixed(2) : type.toFixed(0)}
+            {type < 5 ? '$' + type.toFixed(2) : type.toFixed(0) + 'c'}
           </CustomLabel>
         </SmallerCircle>
+        {minus && (
+          <MinusButton>
+            <Line />
+          </MinusButton>
+        )}
       </Container>
     </TouchableWithoutFeedback>
   );
@@ -81,7 +87,7 @@ const Container = styled(Animated.View)<{
 
   shadow-color: black;
   shadow-offset: 0 2px;
-  shadow-opacity: 0.1;
+  shadow-opacity: 0.2;
 
   margin: 0 10px 10px 0;
 
@@ -103,4 +109,22 @@ const SmallerCircle = styled.View<{size: number; fill: string}>`
 const CustomLabel = styled(Label)<{type: CoinType}>`
   color: ${props => props.theme.colors.black};
   font-size: 14px;
+`;
+
+const MinusButton = styled.View`
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: ${props => props.theme.colors.red};
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Line = styled.View`
+  width: 7px;
+  height: 2px;
+  background-color: ${props => props.theme.colors.white};
 `;

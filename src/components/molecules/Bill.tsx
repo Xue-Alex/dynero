@@ -9,6 +9,7 @@ interface IBillProps {
   type: BillType;
   onPress?: () => void;
   style?: any;
+  minus?: boolean;
 }
 
 function getFill(type: BillType) {
@@ -28,7 +29,7 @@ function getFill(type: BillType) {
   }
 }
 
-const Bill: React.FC<IBillProps> = ({type, onPress}) => {
+const Bill: React.FC<IBillProps> = ({type, onPress, minus}) => {
   const animatedValue = new Animated.Value(0);
   function animate(value: boolean) {
     Animated.timing(animatedValue, {
@@ -61,6 +62,11 @@ const Bill: React.FC<IBillProps> = ({type, onPress}) => {
           ],
         }}>
         <Outline fill={fills[1]} />
+        {minus && (
+          <MinusButton>
+            <Line />
+          </MinusButton>
+        )}
         <CustomLabel type={type}>
           {type === 'custom' ? 'Custom' : '$' + type.toFixed(0)}
         </CustomLabel>
@@ -70,7 +76,6 @@ const Bill: React.FC<IBillProps> = ({type, onPress}) => {
 };
 
 export default Bill;
-
 const Container = styled(Animated.View)<{background: string; type: BillType}>`
   width: 100px;
   height: 60px;
@@ -78,7 +83,7 @@ const Container = styled(Animated.View)<{background: string; type: BillType}>`
 
   shadow-color: black;
   shadow-offset: 0 2px;
-  shadow-opacity: 0.1;
+  shadow-opacity: 0.2;
 
   margin: 0 10px 10px 0;
 
@@ -112,4 +117,22 @@ const Outline = ({fill}: {fill: string}) => {
 const OutlineSvg = styled(Svg)`
   position: absolute;
   top: 0;
+`;
+
+const MinusButton = styled.View`
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: ${props => props.theme.colors.red};
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Line = styled.View`
+  width: 7px;
+  height: 2px;
+  background-color: ${props => props.theme.colors.white};
 `;
