@@ -2,24 +2,23 @@ import {Navigation} from 'react-native-navigation';
 import theme from './src/theme';
 import screens from './src/screens';
 
-Navigation.registerComponent(
-  screens.home.identifier,
-  () => screens.home.component,
-);
-
-Navigation.registerComponent(
-  screens.withdrawal.identifier,
-  () => screens.withdrawal.component,
-);
-
-Navigation.registerComponent(
-  screens.popupModal.identifier,
-  () => screens.popupModal.component,
-);
-Navigation.registerComponent(
-  screens.checkout.identifier,
-  () => screens.checkout.component,
-);
+import {Provider} from 'react-redux';
+import {ThemeProvider} from 'styled-components/native';
+import {store} from './src/store';
+import React from 'react';
+for (const key in screens) {
+  Navigation.registerComponent(
+    screens[key].identifier,
+    () => props => (
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          {React.createElement(screens[key].component, props, null)}
+        </ThemeProvider>
+      </Provider>
+    ),
+    () => screens[key].component,
+  );
+}
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setDefaultOptions({

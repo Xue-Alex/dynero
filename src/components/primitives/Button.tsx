@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {TouchableOpacity, StyleProp, ViewStyle} from 'react-native';
+import {StyleProp, ViewStyle, TouchableWithoutFeedback} from 'react-native';
 import Label from './Label';
 
 interface IButtonProps {
@@ -11,11 +11,11 @@ interface IButtonProps {
 }
 const Button: React.FC<IButtonProps> = ({title, onPress, style, variant}) => {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableWithoutFeedback onPress={onPress}>
       <Container style={style} variant={variant || 'primary'}>
         <CustomLabel variant={variant || 'primary'}>{title}</CustomLabel>
       </Container>
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   );
 };
 

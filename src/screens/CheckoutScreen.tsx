@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import {ThemeProvider} from 'styled-components';
-import theme from '../theme';
 import SmallTopHeader from '../components/primitives/SmallTopHeader';
 import {StatusBar, View} from 'react-native';
 import styled from 'styled-components/native';
@@ -9,14 +7,42 @@ import SubHeader from '../components/primitives/Subheader';
 import Header from '../components/primitives/Header';
 import Label from '../components/primitives/Label';
 import {Navigation} from 'react-native-navigation';
-import screens from '../screens';
 import BackButton from '../components/primitives/BackButton';
 import BankingButton from '../components/molecules/BankingButton';
+import BigText from '../components/primitives/BigText';
+import Button from '../components/primitives/Button';
+import {getState, saveState} from '../methods/useStorage';
 
 const CheckoutScreen: React.FC<{componentId?: string}> = ({componentId}) => {
   const [bankingSelected, setBankingSelected] = useState('chequings');
+  const [state, setState] = useState(getState());
+
+  function onPress() {
+    console.log('opacity');
+    if (bankingSelected === 'chequings') {
+      saveState({
+        ...state,
+        chequing: state.chequing - 5.65 - state.subtotal,
+        subtotal: 0,
+      }).then(s => {
+        Navigation.popToRoot(componentId + '');
+        setState(s);
+      });
+    }
+
+    if (bankingSelected === 'savings') {
+      saveState({
+        ...state,
+        saving: state.saving - 5.65 - state.subtotal,
+        subtotal: 0,
+      }).then(s => {
+        setState(s);
+        Navigation.popToRoot(componentId + '');
+      });
+    }
+  }
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <StatusBar barStyle="light-content" />
       <SafeArea>
         <Scroll>
@@ -32,27 +58,69 @@ const CheckoutScreen: React.FC<{componentId?: string}> = ({componentId}) => {
             <BankingButton
               text="Chequing"
               number="#12345"
-              price={123.81}
+              price={state.chequing}
               highlighted={bankingSelected === 'chequings'}
               onPress={() => setBankingSelected('chequings')}
             />
             <BankingButton
               text="Savings"
               number="#28172"
-              price={123.81}
+              price={state.saving}
               highlighted={bankingSelected === 'savings'}
               onPress={() => setBankingSelected('savings')}
             />
           </BankingContainer>
 
-          <BalanceView>
-            <SubHeader light={false}>Remaining Balance</SubHeader>
-            <NumberText>$1,020.09</NumberText>
+          <CheckoutGrid>
+            <Row>
+              <Label>Withdrawing</Label>
+              <WithdrawPriceText>
+                ${state.subtotal.toFixed(2)}
+              </WithdrawPriceText>
+            </Row>
+            <Row>
+              <Label>Delivery Fee</Label>
+              <Label style={{fontWeight: '400', marginTop: 10}}>$5.00</Label>
+            </Row>
+            <Row>
+              <Label>Tax</Label>
+              <Label style={{fontWeight: '400'}}>$0.65</Label>
+            </Row>
+            <Row style={{marginTop: 20}}>
+              <Label>Total</Label>
+              <Label>${5.65 + state.subtotal}</Label>
+            </Row>
+          </CheckoutGrid>
+
+          <BalanceView style={{marginTop: 20}}>
+            <SubHeader light={false}>Remaining Account Balance</SubHeader>
+            <NumberText>
+              $
+              {(bankingSelected === 'chequing'
+                ? state.chequing
+                : state.saving) -
+                5.65 -
+                state.subtotal}
+              .
+            </NumberText>
           </BalanceView>
 
-          <WithdrawalHeader>Make a Withdrawal</WithdrawalHeader>
-          <Label>Choose Bills and Coins</Label>
+          <BalanceView style={{marginTop: 10}}>
+            <SubHeader light={false}>Remaining Total Balance</SubHeader>
+            <NumberText>
+              $
+              {(state.chequing + state.saving - 5.65 - state.subtotal).toFixed(
+                2,
+              )}
+            </NumberText>
+          </BalanceView>
+          <View style={{height: 100}} />
         </Scroll>
+        <Button
+          title="Confirm"
+          style={{position: 'absolute', bottom: 15, right: '5%'}}
+          onPress={onPress}
+        />
         <SmallTopHeader />
         <TopBarView>
           <BackButton
@@ -62,7 +130,7 @@ const CheckoutScreen: React.FC<{componentId?: string}> = ({componentId}) => {
           <CustomLogo />
         </TopBarView>
       </SafeArea>
-    </ThemeProvider>
+    </>
   );
 };
 
@@ -77,7 +145,6 @@ const Scroll = styled.ScrollView`
 
 const TopBarView = styled.View`
   position: absolute;
-  background-color: rgba(0, 23, 102, 0.2);
   left: 0;
   right: 0;
   height: 100px;
@@ -109,7 +176,7 @@ const BankingContainer = styled.View`
   margin: 10px 0 0;
 `;
 const BalanceView = styled.View`
-  align-items: flex-end;
+  align-items: flex-start;
 `;
 
 const NumberText = styled(Header)`
@@ -117,9 +184,20 @@ const NumberText = styled(Header)`
   color: ${props => props.theme.colors.primary};
 `;
 
-const WithdrawalHeader = styled(Header)`
-  color: ${props => props.theme.colors.black};
-  margin: 20px 0 10px;
+const CheckoutGrid = styled.View`
+  width: 70%;
+  margin: 20px 0 0;
+`;
+
+const Row = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const WithdrawPriceText = styled(BigText)`
+  color: ${props => props.theme.colors.primary};
+  font-weight: ${props => props.theme.fontWeights.regular};
 `;
 
 export default CheckoutScreen;

@@ -21,8 +21,10 @@ const BankingButton: React.FC<IWithdrawalButtonProps> = ({
 }) => {
   return (
     <ContainerButton onPress={onPress}>
-      <Container>
-        <SubHeader light={highlighted || false}>{number}</SubHeader>
+      <Container highlighted={highlighted}>
+        <LightSubHeader light={!highlighted} highlighted={highlighted}>
+          {number}
+        </LightSubHeader>
         <DarkSubheader light={false}>{text}</DarkSubheader>
         <Price>${price.toFixed(2)}</Price>
       </Container>
@@ -37,12 +39,17 @@ const Price = styled.Text`
   font-weight: ${props => props.theme.fontWeights.regular};
 `;
 
-const Container = styled.View`
+const Container = styled.View<{highlighted?: boolean}>`
   width: ${(Dimensions.get('screen').width * 0.8) / 2}px;
   height: ${(Dimensions.get('screen').width * 0.8) / 2}px;
   padding: 20px;
+  background-color: ${props =>
+    props.highlighted ? props.theme.colors.green : props.theme.colors.white};
 `;
-
+const LightSubHeader = styled(SubHeader)<{highlighted?: boolean}>`
+  color: ${props =>
+    props.highlighted ? props.theme.colors.white : props.theme.colors.gray};
+`;
 const DarkSubheader = styled(SubHeader)`
   color: ${props => props.theme.colors.black};
 `;
