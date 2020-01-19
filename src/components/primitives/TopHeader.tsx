@@ -2,7 +2,7 @@ import React from 'react';
 import Svg, {G, Path} from 'react-native-svg';
 import styled from 'styled-components/native';
 
-const Header: React.FC<{}> = () => {
+const TopHeader: React.FC<{}> = () => {
   return (
     <MySvg width="456.842" height="587.466" viewBox="0 0 456.842 587.466">
       <G transform="matrix(1, 0, 0, 1, 0, 0)">
@@ -21,7 +21,7 @@ const Header: React.FC<{}> = () => {
 const MySvg = styled(Svg)`
   position: absolute;
   left: -50px;
-  top: -50px;
+  top: -15px;
 `;
 
-export default Header;
+export default TopHeader;

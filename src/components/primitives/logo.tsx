@@ -1,6 +1,7 @@
 import React from 'react';
 import {SvgCss} from 'react-native-svg';
 import styled from 'styled-components/native';
+import {StyleProp, ViewStyle} from 'react-native';
 
 const xml = `
     <svg id="Layer_3" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 225.28014 57.47949">
@@ -19,14 +20,14 @@ const xml = `
     </svg>
 `;
 
-const Logo = () => {
-  return <Custom xml={xml} width="100%" height="100%" />;
+const Logo = ({style}: {style?: StyleProp<ViewStyle>}) => {
+  return <Custom style={style} xml={xml} width="100%" height="100%" />;
 };
 
 const Custom = styled(SvgCss)`
   position: absolute;
-  left: -10%;
-  top: -35%;
+  left: -15%;
+  top: -55%;
   transform: scale(0.7);
 `;
 

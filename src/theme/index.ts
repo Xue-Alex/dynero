@@ -10,6 +10,7 @@ const black = '#131313';
 const red = '#F54545';
 const green = '#43D043';
 const action = '#3B9DFF';
+const sandy = '#FAF6E4';
 /**
  * Responsive Scaling
  */
@@ -27,6 +28,7 @@ interface Breakpoints {
     desktop?: string;
   };
 }
+
 const breakpoints: Breakpoints = ['576px', '768px', '992px', '1200px'];
 breakpoints.mobile = breakpoints[0];
 breakpoints.tablet = breakpoints[1];
@@ -134,6 +136,7 @@ const colors = {
   red,
   green,
   action,
+  sandy,
 };
 
 const fonts = {
